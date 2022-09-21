@@ -1,2 +1,3 @@
 # React-files
-All files related to react
+
+Components and props
