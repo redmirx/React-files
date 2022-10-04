@@ -1,10 +1,12 @@
+import "./ExpenseItem.css";
+
 export function ExpenseItem() {
   return (
-    <div>
+    <div className="expense-item">
       <div>March 21th 2022</div>
-      <div>
+      <div className="expense-item__description">
         <h2>Car insurance</h2>
-        <div>294.62</div>
+        <div className="expense-item__price">294.62</div>
       </div>
     </div>
   );
