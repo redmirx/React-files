@@ -34,7 +34,12 @@ export default function ExpenseForm(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onSaveExpenseData(userInput);
+    const expenses = {
+      title: userInput.enteredTitle,
+      amount: userInput.enteredAmount,
+      date: new Date(userInput.enteredDate),
+    };
+    props.onSaveExpenseData(expenses);
     setUserInput((prevState) => {
       return {
         ...prevState,

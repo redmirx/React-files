@@ -20,15 +20,23 @@ function Expenses(props) {
           selected={FilteredYear}
           onSaveDate={saveExpenseDateHandler}
         />
+
+        {props.items.filter((value) => {
+          let filteredList = value.date.getFullYear() === Number(FilteredYear);
+          console.log(filteredList);
+          return filteredList;
+        })}
+
         {props.items.map((value) => {
           return (
-            <div key={value.id}>
-              <ExpenseItem
-                title={value.title}
-                date={value.date}
-                amount={value.amount}
-              />
-            </div>
+            // <div>
+            <ExpenseItem
+              key={value.id}
+              title={value.title}
+              date={value.date}
+              amount={value.amount}
+            />
+            // </div>
           );
         })}
       </Card>
