@@ -20,34 +20,17 @@ function Expenses(props) {
           selected={FilteredYear}
           onSaveDate={saveExpenseDateHandler}
         />
-        {props.items.map(
-          (value) => {
-            console.log(value.date);
-            return (
+        {props.items.map((value) => {
+          return (
+            <div key={value.id}>
               <ExpenseItem
                 title={value.title}
                 date={value.date}
                 amount={value.amount}
               />
-            );
-          }
-          // <ExpenseItem
-          //   title={value.title}
-          //   date={value.date}
-          //   amount={value.amount}
-          // />
-        )}
-
-        {/* <ExpenseItem
-          title={props.items[0].title}
-          date={props.items[0].date}
-          amount={props.items[0].amount}
-        /> */}
-        {/* <ExpenseItem
-          title={props.items[1].title}
-          date={props.items[1].date}
-          amount={props.items[1].amount}
-        /> */}
+            </div>
+          );
+        })}
       </Card>
     </div>
   );
