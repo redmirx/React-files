@@ -13,9 +13,14 @@ function App() {
     { id: "el-2", title: "New TV", amount: 799.49, date: new Date(2022, 8, 3) },
     {},
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses}></Expenses>;
     </div>
   );

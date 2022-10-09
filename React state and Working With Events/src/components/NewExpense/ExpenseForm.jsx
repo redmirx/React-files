@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
   // const [enteredTitle, setEnteredTitle] = useState("");
   // const [enteredAmount, setEnteredAmount] = useState("");
   // const [enteredDate, setEnteredDate] = useState("");
@@ -11,7 +11,6 @@ export default function ExpenseForm() {
     enteredAmount: "",
     enteredDate: "",
   });
-
   const titleChangeHandler = (event) => {
     // setEnteredTitle(event.target.value); //first way
     // setUserInput({ ...userInput, enteredTitle: event.target.value }); second way
@@ -35,8 +34,7 @@ export default function ExpenseForm() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(userInput);
-
+    props.onSaveExpenseData(userInput);
     setUserInput((prevState) => {
       return {
         ...prevState,
