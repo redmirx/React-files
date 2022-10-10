@@ -11,6 +11,9 @@ function Expenses(props) {
     setFilteredYear(pickedDate);
   };
 
+  const filterdExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear() === Number(FilteredYear);
+  });
   // console.log(FilteredYear);
 
   return (
@@ -21,13 +24,7 @@ function Expenses(props) {
           onSaveDate={saveExpenseDateHandler}
         />
 
-        {props.items.filter((value) => {
-          let filteredList = value.date.getFullYear() === Number(FilteredYear);
-          console.log(filteredList);
-          return filteredList;
-        })}
-
-        {props.items.map((value) => {
+        {filterdExpenses.map((value) => {
           return (
             // <div>
             <ExpenseItem
