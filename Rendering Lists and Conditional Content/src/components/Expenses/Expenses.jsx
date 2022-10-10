@@ -11,7 +11,7 @@ function Expenses(props) {
     setFilteredYear(pickedDate);
   };
 
-  const filterdExpenses = props.items.filter((expense) => {
+  const filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear() === Number(FilteredYear);
   });
   // console.log(FilteredYear);
@@ -23,19 +23,22 @@ function Expenses(props) {
           selected={FilteredYear}
           onSaveDate={saveExpenseDateHandler}
         />
-
-        {filterdExpenses.map((value) => {
-          return (
-            // <div>
-            <ExpenseItem
-              key={value.id}
-              title={value.title}
-              date={value.date}
-              amount={value.amount}
-            />
-            // </div>
-          );
-        })}
+        {filteredExpenses.length === 0 ? (
+          <p>No expenses found</p>
+        ) : (
+          filteredExpenses.map((value) => {
+            return (
+              // <div>
+              <ExpenseItem
+                key={value.id}
+                title={value.title}
+                date={value.date}
+                amount={value.amount}
+              />
+              // </div>
+            );
+          })
+        )}
       </Card>
     </div>
   );
